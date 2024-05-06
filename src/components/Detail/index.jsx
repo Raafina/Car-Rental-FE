@@ -116,16 +116,6 @@ const Detail = () => {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="Model">
-            <Form.Label>Model</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter Model"
-              value={model}
-              onChange={(e) => setModel(e.target.value)}
-              required
-            />
-          </Form.Group>
 
           <Form.Group className="mb-3" controlId="manufacture">
             <Form.Label>Manufacture</Form.Label>
