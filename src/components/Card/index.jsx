@@ -76,6 +76,7 @@ CarCard.propTypes = {
 
 function ModalBox({ close, show, carId, handleClose }) {
   const dispatch = useDispatch();
+
   const handleDeleteCar = async (e) => {
     e.preventDefault();
     dispatch(deleteCar(carId));
