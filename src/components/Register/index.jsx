@@ -1,10 +1,36 @@
-import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { toast } from "react-toastify";
+import { useNavigate, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/actions/auth";
 
 export default function RegisterForm() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [photo, setPhoto] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    if (password != confirmPassword) {
+      toast.error(`Password and confirm password must be same!`);
+      return;
+    }
+
+    // dispatch the register action
+    dispatch(register(navigate, email, password, name, photo, setIsLoading));
+  };
+
   return (
-    //<Form onSubmit={onSubmit}>
-    <Form>
+    <Form onSubmit={onSubmit}>
       <Form.Group className="mb-3" controlId="name">
         <Form.Label>Name</Form.Label>
         <Form.Control
@@ -21,8 +47,8 @@ export default function RegisterForm() {
         <Form.Control
           type="email"
           placeholder="Enter email"
-          //value={email}
-          //onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <Form.Text className="text-muted">
@@ -35,8 +61,8 @@ export default function RegisterForm() {
         <Form.Control
           type="password"
           placeholder="Password"
-          //value={password}
-          //onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
       </Form.Group>
@@ -46,8 +72,8 @@ export default function RegisterForm() {
         <Form.Control
           type="password"
           placeholder="Confirm Password"
-          //value={confirmPassword}
-          //onChange={(e) => setConfirmPassword(e.target.value)}
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
       </Form.Group>
@@ -56,7 +82,7 @@ export default function RegisterForm() {
         <Form.Label>Photo</Form.Label>
         <Form.Control
           type="file"
-          //onChange={(e) => setPhoto(e.target.files[0])}
+          onChange={(e) => setPhoto(e.target.files[0])}
         />
       </Form.Group>
 
@@ -65,7 +91,7 @@ export default function RegisterForm() {
       </Button> */}
       <Form.Group className="text-center mt-3">
         <Button variant="primary" type="submit" className="w-100">
-          Register
+          {isLoading ? "Registering..." : "Register"}
         </Button>
       </Form.Group>
       <p className="mt-3 text-center">
