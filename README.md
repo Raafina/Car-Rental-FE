@@ -4,7 +4,7 @@ Car-Rental-FE is a frontend learning project for the MSIB Kemdikbud x Binar Acad
 ## 🚀 Key Features
 <ul>
     <li>Car Management (CRUD for car listings).</li>
-    <li>Authtenication for Super Admin, Admin, User</li>
+    <li>Authtenication for Super Admin, Admin and User</li>
 </ul>
 
 ## 🛠️ Tech Stack
