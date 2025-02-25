@@ -1,5 +1,5 @@
-## Car Rental BE
-Car-Rental-BE is a backend learning project for the MSIB Kemdikbud x Binar Academy Fullstack Web Developer program. Built with Node.js and Express.js, it covers essential backend concepts such as RESTful API development.
+## Car Rental FE
+Car-Rental-FE is a frontend learning project for the MSIB Kemdikbud x Binar Academy Fullstack Web Developer program. Built with React.js, it implements key frontend concepts such as component-based architecture, state management, routing, and API integration to create a seamless car rental booking experience.
 
 ## 🚀 Key Features
 <ul>
